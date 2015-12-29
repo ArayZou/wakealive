@@ -1,47 +1,94 @@
 {
   "name": "wakealive",
   "version": "0.0.1",
-  "description": "wake alive blog generater with nodejs,koa,react,redux,markdown,postcss,webpack",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ArayZou/wakealive.git"
-  },
+  "description": "koa+redux+markdown blog system",
   "keywords": [
     "koa",
-    "nodejs",
     "react",
-    "redux",
-    "markdown",
-    "postcss",
-    "webpack"
+    "mongoose",
+    "mocha",
+    "webpack",
+    "react-router",
+    "redux"
   ],
-  "author": "arayzou",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/ArayZou/wakealive/issues"
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ArayZou/wakealive"
   },
-  "homepage": "https://github.com/ArayZou/wakealive#readme",
+  "scripts": {
+    "start": "NODE_ENV=development ./node_modules/.bin/nodemon --harmony server.js",
+    "prod": "npm run build && NODE_ENV=production node --harmony server.js",
+    "build": "NODE_ENV=production webpack --config webpack.config.js --separate-stylesheet -p --progress --profile --colors",
+    "hot-dev-server": "webpack-dev-server --content-base public -ds --config webpack.config.js --hot --progress --colors --inline",
+    "dev-server": "npm run hot-dev-server",
+    "test": "npm run base-test && npm run lint",
+    "base-test": "NODE_ENV=test ./node_modules/.bin/mocha --harmony --reporter spec ./test/test-*.js",
+    "lint": "eslint src app test webpack config lib server.js webpack.config.js"
+  },
+  "author": "ArayZou <zrxldl@gmail.com>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=4.0.0"
+  },
   "dependencies": {
-    "koa": "^1.1.2",
+    "bcrypt": "~0.8.5",
+    "bootstrap": "~3.3.4",
+    "co": "~4.6.0",
+    "co-views": "~1.0.0",
+    "humps": "^1.0.0",
+    "isomorphic-fetch": "^2.2.0",
+    "koa": "~1.0.0",
+    "koa-bodyparser": "~2.0.1",
+    "koa-compress": "1.0.x",
+    "koa-error": "1.1.x",
+    "koa-generic-session": "~1.9.2",
+    "koa-logger": "1.3.0",
+    "koa-response-time": "1.0.x",
+    "koa-router": "~5.1.2",
+    "koa-static-cache": "~3.1.2",
+    "lodash": "~3.10.1",
+    "normalizr": "^1.4.0",
     "react": "^0.14.3",
-    "react-dom": "^0.14.3"
+    "react-dom": "^0.14.3",
+    "react-redux": "^4.0.6",
+    "react-router": "^1.0.3",
+    "redux": "^3.0.5",
+    "redux-logger": "^2.3.1",
+    "redux-router": "^1.0.0-beta5",
+    "redux-thunk": "^1.0.3",
+    "superagent": "~1.3.0",
+    "swig": "1.4.x"
   },
   "devDependencies": {
-    "babel-core": "^6.2.1",
-    "babel-loader": "^6.2.0",
-    "babel-preset-es2015": "^6.1.18",
-    "babel-preset-react": "^6.1.18",
-    "gulp": "^3.9.0",
-    "gulp-nodemon": "^2.0.4",
-    "gulp-util": "^3.0.7",
-    "html-webpack-plugin": "^1.7.0",
-    "path": "^0.12.7",
-    "react-hot-loader": "^1.3.0",
-    "webpack": "^1.12.9",
-    "webpack-dev-server": "^1.14.0"
+    "redux-devtools": "^2.1.5",
+    "babel": "~5.8.23",
+    "babel-core": "~5.8.23",
+    "babel-eslint": "~4.1.0",
+    "babel-loader": "~5.3.2",
+    "babel-runtime": "~5.8.20",
+    "css-loader": "~0.16.0",
+    "eslint": "~1.2.1",
+    "eslint-plugin-babel": "~2.1.1",
+    "eslint-plugin-react": "~3.3.0",
+    "extract-text-webpack-plugin": "~0.8.2",
+    "file-loader": "~0.8.1",
+    "html-loader": "~0.3.0",
+    "koa-proxy": "^0.3.0",
+    "koa-sess-mongo-store": "~0.1.1",
+    "less": "~2.5.0",
+    "less-loader": "~2.2.0",
+    "mocha": "~2.2.4",
+    "nodemon": "~1.4.1",
+    "null-loader": "~0.1.1",
+    "react-hot-loader": "~1.2.9",
+    "react-proxy-loader": "~0.3.4",
+    "should": "~7.0.4",
+    "style-loader": "~0.12.3",
+    "supertest": "~1.1.0",
+    "url-loader": "~0.5.5",
+    "webpack": "~1.12.0",
+    "webpack-dev-server": "~1.10.1",
+    "yargs": "~3.21.0"
   }
 }
