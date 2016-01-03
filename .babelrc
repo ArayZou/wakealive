@@ -1,10 +1,4 @@
 {
-  "optional": [
-    "runtime",
-    "es7.objectRestSpread",
-    "es7.asyncFunctions",
-    "es7.classProperties",
-    "es7.decorators",
-    "es7.trailingFunctionCommas"
-  ]
+  "presets": ["es2015", "stage-0", "react"],
+  "plugins": ["transform-runtime"]
 }
