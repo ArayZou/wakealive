@@ -2,11 +2,12 @@ var webpack = require('webpack');
 var webpackDevMiddleware = require('koa-webpack-dev-middleware');
 var webpackHotMiddleware = require('koa-webpack-hot-middleware');
 var config = require('./webpack.config');
-var views = require('koa-render');
-var underscore = require('underscore');
 
 
 var app = require('koa')();
+var views = require('koa-render');
+var underscore = require('underscore');
+var urlHelper = require("./config/routes.js");
 var port = 2020;
 
 var compiler = webpack(config);
@@ -18,9 +19,9 @@ app.use(views('./server/', {
         html: 'underscore'
     }
 }));
-app.use(function* (next) {
-    this.body = yield this.render('index.html');
-});
+
+//设置路径
+urlHelper.setRuquestUrl(app);
 
 app.listen(port, function(error) {
   if (error) {

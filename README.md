@@ -1,5 +1,11 @@
 # wakealive
 
+# Running
+-   npm start           后端生产服务器
+-   npm run hot         前端服务器
+-   npm run server      后端开发服务器
+-   npm run build       打包前端文件
+
 # 设计思路
 
 前端系统和后端系统分离
@@ -15,15 +21,25 @@ server用KOA加后端渲染react的模式
 # 文件目录
 
 ├── /theme/
-    └──  /wakealive
+
+│   └──  /wakealive
+
 ├── /build/
+
 │   ├── /index.html
+
 │   ├── /bundel.js
+
 │   └──  /json/
+
 ├── /server/
+
 │   ├── /server.js
+
 │   └──  /tpl
+
 │── package.json
+
 └── webpack.config.js
 
 # Learn More
